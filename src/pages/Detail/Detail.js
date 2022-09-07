@@ -172,7 +172,7 @@ function Detail() {
                         </div>
 
                         <div ref={videoRef} className={cx('player')}>
-                            {/* <PlayerItem id={id} catagory={catagory} seasons={detail.seasons ? detail.seasons : null} movie={catagory == 'movie' ? movie : null} /> */}
+                            <PlayerItem id={id} catagory={catagory} seasons={detail.seasons ? detail.seasons : null} movie={catagory == 'movie' ? movie : null} />
                         </div>
 
                         <div className={cx('similar', 'mb-3')}>
