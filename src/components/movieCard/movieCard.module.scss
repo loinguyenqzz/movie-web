@@ -1,0 +1,118 @@
+@use '../../styles/' as *;
+
+.movieCard {
+  cursor: pointer;
+  position: relative;
+
+  &:hover {
+    color: $main-color;
+
+    .wrapper {
+      .poster {
+        transform: translateY(-30%);
+      }
+
+      .popular,
+      .rating {
+        transform: translate(0);
+      }
+
+      .overview {
+        opacity: 0.8;
+        transform: translateY(0);
+      }
+
+      .iconPlay {
+        transform: scale(1);
+        display: block;
+      }
+    }
+  }
+  .wrapper {
+    @include flex(unset, center);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+
+    @include tablet {
+      height: auto;
+    }
+
+    @include mobile {
+      height: auto;
+    }
+
+    .poster {
+      height:auto !important;
+      max-width: 100% !important;
+      object-fit: cover !important;
+      transition: transform 0.5s ease-out !important;
+    }
+
+    .popular {
+      position: absolute;
+      left: 10px;
+      top: 20px;
+      padding: 3px 10px;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      background: #2a264f;
+      color: #fff;
+      border-radius: 5px;
+      transform: translate(-170px, 0);
+      transition: all 0.5s ease;
+    }
+
+    .rating {
+      position: absolute;
+      left: 10px;
+      top: 60px;
+      padding: 3px 10px;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      background: #8b2463;
+      color: #fff;
+      border-radius: 5px;
+      transform: translate(-160px, 0);
+      transition: all 0.5s ease 0.15s;
+    }
+
+    .overview {
+      position: absolute;
+      bottom: 0px;
+      height: auto;
+      width: 100%;
+      padding: 15px 10px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #fff;
+      transform: translateY(100%);
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+
+    .iconPlay {
+      position: absolute;
+      transform: scale(0);
+      font-size: 40px;
+      top: calc(50% - 20px);
+      transition: transform 0.5s ease;
+    }
+  }
+
+  .title {
+    position: relative;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+
+    @include mobile {
+      font-size: 1rem;
+    }
+  }
+}

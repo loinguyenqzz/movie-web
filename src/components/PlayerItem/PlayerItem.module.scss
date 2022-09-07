@@ -1,0 +1,95 @@
+@use '../../styles/' as *;
+
+.player {
+    position: relative;
+    @include flex(unset, center);
+
+    @include mobile {
+        @include flex(center, center, column);
+    }
+    & > iframe {
+        width: 70vw;
+        height: 80vh;
+
+        @include mobile {
+            width: 100vw;
+            height: 50vh;
+        }
+    }
+
+    .player-item {
+        width: 25vw;
+        height: 80vh;
+        overflow: scroll;
+        cursor: pointer;
+
+        @include mobile {
+            width: 100vw;
+            height: 30vh;
+        }
+        .season {
+            padding: 1rem 1.3rem;
+            border-bottom: 1px solid $gray;
+            
+            .season-header {
+                @include flex(unset);
+                transition: transform .5s ease;
+                padding-bottom: 0.3rem;
+                
+                & > img {
+                    height: 100px;
+                }
+                .infor-season {
+                    padding: 0rem 1rem;
+                    .season-name {
+                        color: $light-blue;
+                    }
+                }
+                &:hover{
+                    transform: scale(1.1);
+                }
+            }
+
+            .episode {
+                display: none;
+                .episode-number {
+                    font-size: 1rem;
+                    padding: 0.5rem;
+                    margin: 0.3rem;
+                    background: none;
+                    color: white;
+                    border: 2px solid $gray;
+                    cursor: pointer;
+
+                    &:hover {
+                        border: 2px solid $main-color;
+                    }
+                }
+
+                .active-btn {
+                    border: 2px solid $main-color;
+                }
+            }
+            .active {
+                display: block;
+            }
+        }
+
+        .type-movie {
+            @include flex(unset);
+            padding: 2rem;
+    
+            .poster {
+                height: 20vh;
+                .img {
+                    height: 100%;
+                }
+            }
+
+            .infor {
+                padding: 0 1rem;
+                flex: 1;
+            }
+        }
+    }
+}

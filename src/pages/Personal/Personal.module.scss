@@ -1,0 +1,94 @@
+@use '../../styles/' as *;
+
+.personal {
+  padding: $header-height 1rem 0 2rem;
+  min-height: 100vh;
+
+  .content {
+    .nav {
+      @include flex(center, space-between, row);
+
+      @include mobile {
+        @include flex(center, unset, column);
+      }
+      .tab-label {
+        @include flex(center, unset, row);
+        flex-shrink: 0;
+        .title {
+          padding: 1rem 1.3rem 0.2rem 1.3rem;
+          font-size: 1.1rem;
+          cursor: pointer;
+          font-weight: 600;
+          border-bottom: 3px solid transparent;
+        }
+
+        .active {
+          color: $main-color;
+          border-bottom: 3px solid $red3;
+        }
+      }
+
+      .edit-wrap {
+        @include flex(center);
+
+        @include mobile {
+          width: 100%;
+          justify-content: flex-end;
+        }
+        .edit-option {
+          padding: 1rem 2rem;
+          cursor: pointer;
+          @include flex(center);
+          
+          @include mobile {
+            padding: 1rem;
+            font-size: .8rem;
+            @include flex(center, flex-end);
+          }
+  
+          &:hover {
+            color: $light-blue;
+          }
+        }
+      }
+      .btn-edit {
+        width: 100%;
+        padding: 1rem 2rem;
+        cursor: pointer;
+        @include flex(center, flex-end);
+        
+        @include mobile {
+          padding: 1rem;
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    .movie-item {
+      @include flex(center, unset, column);
+      .wrapper {
+        width: 100%;
+        min-height: 400px;
+
+        @include tablet {
+          min-height: 300px;
+        }
+  
+        @include mobile {
+          
+        }
+      }
+      .select {
+        @include flex(center, center);
+        height: 20px;
+        width: 20px;
+        margin: 1rem 0;
+        border: 3px solid $gray;
+        .icon {
+          font-size: 1.1rem;
+          color: $light-blue;
+        }
+      } 
+    }
+  }
+}

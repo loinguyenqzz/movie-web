@@ -1,13 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
+import Loading from './components/Loading';
+import { persistor, store } from './app/store'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Provider store={store}>
+      <PersistGate loading={<Loading/>} persistor={persistor}>
+        <App />
+        </PersistGate>
+      </Provider>
+    </Router>
   </React.StrictMode>
 );
 

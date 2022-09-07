@@ -1,0 +1,88 @@
+@use '../../styles/' as *;
+
+.header {
+  height: $header-height;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  position: fixed;
+  width: 100%;
+  transition: height 0.3s ease, background-color 0.3s ease;
+
+  &.shrink {
+    height: $header-shrink-height;
+    background-color: $header-color;
+
+    @include mobile {
+      height: 4rem;
+    }
+  }
+
+  @include mobile {
+    height: 5rem;
+  }
+
+  .wrapper {
+    @include flex(center, space-between);
+    height: 100%;
+    padding: 0 2rem;
+
+    @include mobile {
+      padding: 0 .8rem;
+    }
+
+    .logo {
+      @include flex(center, unset);
+      font-size: 2.4rem;
+      font-weight: 600;
+      .logoImg {
+        width: 50px;
+        margin-right: 10px;
+
+        @include tablet {
+          margin-right: 5px;
+          width: 40px;
+        }
+
+        @include mobile {
+          margin-right: 0;
+          width: 30px;
+        }
+      }
+
+      .logoName {
+        .daily {
+          color: $text-color;
+          transition: color 0.5s ease;
+        }
+
+        .movie {
+          color: $main-color;
+          transition: color 0.5s ease;
+        }
+
+        &:hover {
+          .daily {
+            color: $main-color;
+          }
+
+          .movie {
+            color: $text-color;
+          }
+        }
+      }
+
+      @include tablet {
+        .logoName {
+          font-size: 2.3rem;
+        }
+      }
+
+      @include mobile {
+        .logoName {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}

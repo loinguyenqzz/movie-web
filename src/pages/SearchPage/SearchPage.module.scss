@@ -1,0 +1,19 @@
+@use '../../styles/' as *;
+
+.search {
+    margin-top: $header-height;
+    padding: 0 2rem;
+
+    .tab {
+        @include flex(center);
+
+        .tab-item {
+            margin: 1rem;
+            cursor: pointer;
+        }
+
+        .acive-tab {
+            border-bottom: 3px solid $main-color;
+        }
+    }
+}

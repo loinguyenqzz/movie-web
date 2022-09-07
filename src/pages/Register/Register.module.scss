@@ -1,0 +1,97 @@
+@use '../../styles/' as *;
+.register {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  @include flex(center, center, column);
+
+  .tittle {
+    color: $red3;
+    font-size: 3rem;
+    font-weight: 700;
+
+    @include mobile {
+      font-size: 2rem;
+    }
+  }
+
+  .registerForm {
+    @include flex(center, unset, column);
+    max-width: 500px;
+
+    .formGroup {
+      padding: 1rem;
+      width: 100%;
+
+      .input-group {
+        .label {
+          opacity: 0.6;
+          position: absolute;
+          transform: translate(1.25rem, 60%);
+          font-size: 1rem;
+          pointer-events: none;
+
+          @include mobile {
+            font-size: .7rem;
+            transform: translate(1.25rem, 80%);
+          }
+        }
+
+        .label-active {
+          transform: translate(1.25rem, -50%) !important;
+          transition: transform 0.5s ease;
+        }
+
+        .input-error {
+          border: 2px solid $red2;
+        }
+
+        input {
+          background-color: $gray;
+          border-radius: 0.75rem;
+          padding: 1rem 3rem 1rem 1.2rem;
+          border: 2px solid transparent;
+          color: white;
+          font-size: 1rem;
+          width: 100%;
+
+          @include mobile {
+            font-size: .5rem;
+          }
+        }
+
+        .icon {
+          position: absolute;
+          transform: translate(-2rem, 100%);
+        }
+      }
+      .error {
+        color: $red2;
+        position: absolute;
+      }
+    }
+
+    .nameGroup {
+      width: 100%;
+      @include flex(center, space-between);
+    }
+
+    .btn-register {
+      border-radius: 2rem;
+      font-size: 1.2rem;
+      margin: 1rem 0 2rem 0;
+    }
+  }
+  .already-member {
+    font-weight: 600;
+    font-size: 1.3rem;
+
+    .link {
+      color: $red3;
+
+      &:hover {
+        color: $main-color;
+      }
+    }
+  }
+}

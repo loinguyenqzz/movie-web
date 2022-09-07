@@ -1,0 +1,19 @@
+@use '../../styles/' as *;
+
+.title {
+  position: relative;
+  margin: 2rem 0.5rem;
+
+  @include mobile {
+    font-size: 1.7rem;
+  }
+
+  &::before {
+    content: "";
+    height: 100%;
+    width: 4px;
+    position: absolute;
+    background-color: $main-color;
+    transform: translateX(-150%);
+  }
+}

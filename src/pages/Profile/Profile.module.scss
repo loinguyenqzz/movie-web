@@ -1,0 +1,153 @@
+@use '../../styles/' as *;
+
+.profile {
+  min-height: 100vh;
+  width: 100%;
+  padding: $header-height 2rem;
+
+  @include mobile {
+    padding: $header-height 1rem;
+  }
+
+  .wraper-infor {
+    @include flex(center, unset);
+
+    @include mobile {
+      @include flex(center, unset, column-reverse);
+    }
+
+    .photo {
+      @include flex(center, center, column);
+      & > img {
+        border: 2px solid $gray;
+        border-radius: 9999px;
+        margin: 1rem;
+        height: 250px;
+        width: 250px;
+
+        @include tablet {
+          height: 150px;
+          width: 150px;
+        }
+      }
+      
+      label {
+        margin-top: 1.5rem;
+        padding: 0.3rem 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 30px;
+        border: 2px solid white;
+        transition: all 0.5s ease;
+        cursor: pointer;
+
+        svg {
+          font-size: 1.1rem;
+          padding-right: 0.7rem;
+        }
+
+        &:hover {
+          background-color: white;
+          color: $main-color;
+        }
+        input {
+          display: none;
+        }
+      }
+    }
+
+    .infor {
+      width: 40vw;
+      max-width: 600px;
+
+      @include mobile {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .group-input {
+        padding: 1rem 0;
+
+        h2 {
+          padding: 0.5rem 0;
+        }
+
+        & > input {
+          width: 60%;
+          font-size: 1rem;
+          font-weight: 400;
+          border-radius: 5px;
+          padding: 0.5rem 1rem;
+          background-color: $gray;
+          border: none;
+          color: $ultimate-gray;
+
+          @include mobile {
+            width: 50%;
+          }
+        }
+
+        & > input:disabled {
+          color: $ultimate-gray;
+          opacity: 0.7;
+        }
+
+        & > button {
+          font-size: 1rem;
+          font-weight: 400;
+          border-radius: 5px;
+          padding: 0.5rem 1rem;
+          background-color: $gray;
+          border: none;
+          color: white;
+          margin-left: 1rem;
+          cursor: pointer;
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+
+      .delete-account {
+        padding: 1rem 0;
+      }
+    }
+  }
+
+  .cus-modal {
+    border-radius: 10px;
+    @include flex(center, center, column);
+    text-align: center;
+
+    & > * ~ * {
+      margin-top: 1rem;
+    }
+
+    & > input {
+      width: 70%;
+      max-width: 500px;
+      font-size: 1rem;
+      font-weight: 400;
+      border-radius: 5px;
+      padding: 0.5rem 1rem;
+      background-color: $gray;
+      border: none;
+      color: $ultimate-gray;
+    }
+
+    & > button {
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 5px;
+      padding: 0.5rem 1rem;
+      background-color: $gray;
+      border: none;
+      color: white;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}

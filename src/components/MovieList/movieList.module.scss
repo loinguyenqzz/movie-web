@@ -1,0 +1,14 @@
+@use '../../styles/' as *;
+
+.swiper-slide {
+    width: 200px;
+
+    @include tablet {
+        width: 170px;
+    }
+
+    @include mobile {
+       width: 130px;
+    }
+}
+

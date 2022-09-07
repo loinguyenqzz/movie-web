@@ -1,0 +1,212 @@
+@use '../../styles/' as *;
+
+.wrapper {
+  min-height: 100vh;
+  .detail {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    @include flex(center, center);
+    padding-top: $header-height;
+    padding-bottom: 100px;
+    min-height: 100vh;
+    width: 100%;
+
+    @include mobile {
+      @include flex(unset, unset, column);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      @include overlay;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background-image: linear-gradient(to top, $body-bg, rgba($body-bg, 0));
+    }
+
+    .poster {
+      position: relative;
+      width: 300px;
+
+      @include tablet {
+        width: 200px;
+      }
+
+      @include mobile {
+        width: 100%;
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: 110px 2fr;
+        grid-template-rows: 1fr 1fr;
+      }
+
+
+      .title {
+        display: none;
+        @include mobile {
+          display: block;
+          grid-area: 1 / 2 / 2 / 3;
+        }
+      }
+
+      span {
+        @include mobile {
+          grid-area: 1 / 1 / 3 / 2;
+        }
+      }
+
+      .poster-img {
+        border-radius: 10px;
+        @include mobile {
+          height: 150px;
+        }
+      }
+
+      .interactive {
+        @include flex(center, space-between);
+        padding: 1rem 0;
+
+        @include mobile {
+          grid-area: 2 / 2 / 3 / 3;
+          @include flex(center, flex-end, row-reverse);
+          flex-wrap: wrap;
+          & > * ~ * {
+            margin-right: 0.7rem;
+          }
+        }
+
+        .favorite,
+        .trailer {
+          width: 45px;
+          height: 45px;
+          border-radius: 9999px;
+          border: 3px solid white;
+          @include flex(center, center);
+          transition: all 0.5s ease;
+          cursor: pointer;
+
+          @include tablet {
+            width: 35px;
+            height: 35px;
+            border: 2px solid white;
+          }
+
+          @include mobile {
+            width: 30px;
+            height: 30px;
+            border: 2px solid white;
+          }
+
+          &:hover {
+            color: $main-color;
+            border: 3px solid $main-color;
+            @include mobile {
+              border: 2px solid $main-color;
+            }
+          }
+
+          .icon {
+            padding: 3px;
+            font-size: 1.5rem;
+
+            @include tablet {
+              padding: 1px;
+              font-size: 1.5rem;
+            }
+
+            @include mobile {
+              padding: 1px;
+              font-size: 1.1rem;
+            }
+          }
+        }
+      }
+    }
+
+    .infor {
+      width: 60%;
+      position: relative;
+      padding-left: 3rem;
+
+      @include mobile {
+        width: 100%;
+        padding-left: 1rem;
+      }
+
+      .title {
+        font-size: 4rem;
+        font-weight: 700;
+
+        @include mobile {
+          display: none;
+        }
+      }
+
+      .genres {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 10px;
+
+        @include mobile {
+          grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+          gap: 5px;
+        }
+      }
+
+      .casts {
+        .castList {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+          gap: 10px;
+
+          @include tablet {
+            grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+            gap: 5px;
+          }
+
+          @include mobile {
+            grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+            gap: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .player {
+    position: relative;
+    padding: 1rem;
+    @include flex(unset, center);
+
+    @include mobile {
+      padding: 0;
+    }
+
+    & > iframe {
+      box-shadow: $box-shadow;
+      width: 70vw;
+      height: 80vh;
+
+      @include mobile {
+        height: 300px;
+      }
+    }
+  }
+
+  .similar {
+    margin-left: 1rem;
+  }
+}

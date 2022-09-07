@@ -1,0 +1,79 @@
+@use '../../styles/' as *;
+.search {
+  @include flex(center, flex-end);
+  border-radius: 25px;
+  margin-left: 0.5rem;
+
+  &:hover {
+    border: 2px solid $gray;
+    .searchInput {
+      width: 90%;
+      padding: 0 1rem;
+
+      @include tablet {
+        padding: 0 0.8rem;
+      }
+
+      @include mobile {
+        padding: 0 0.6rem;
+      }
+    }
+
+    .searchButton {
+      background: white;
+      color: #2f3640;
+    }
+  }
+
+  .searchInput {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 35px;
+    width: 0px;
+
+    @include tablet {
+      font-size: 15px;
+      line-height: 30px;
+    }
+
+    @include mobile {
+      font-size: 14px;
+      line-height: 25px;
+    }
+  }
+
+  .searchButton {
+    color: white;
+    float: right;
+    width: 35px;
+    height: 35px;
+    border: 2px solid $gray;
+    border-radius: 50%;
+    background: #2f3640;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+    flex-shrink: 0;
+
+    @include tablet {
+      width: 30px;
+      height: 30px;
+      border: 1.5px solid $gray;
+      font-size: 1.1rem;
+    }
+
+    @include mobile {
+      width: 25px;
+      height: 25px;
+      border: 1px solid $gray;
+      font-size: 0.9rem;
+    }
+  }
+}
