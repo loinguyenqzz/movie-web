@@ -15,26 +15,68 @@ import { useEffect } from 'react';
 
 const cx = className.bind(styles)
 
-const headerNav = [
-    {
-        title: 'Home',
-        path: '/',
-        content: null,
-        icon: faHouse
-    },
-    {
-        title: 'Movies',
-        path: '/movie',
-        content: movieGenres,
-        icon: faFilm
-    },
-    {
-        title: 'TV Series',
-        path: '/tv',
-        content: tvGenres,
-        icon: faTv
-    }
-]
+const headerNav = {
+    menu: [
+        {
+            title: 'Home',
+            path: '/',
+            content: null,
+            icon: faHouse
+        },
+        {
+            title: 'Movies',
+            path: '/movie',
+            content: movieGenres,
+            icon: faFilm
+        },
+        {
+            title: 'TV Series',
+            path: '/tv',
+            content: tvGenres,
+            icon: faTv
+        }
+    ],
+    personal: [
+        {
+            title: 'Favorites',
+            path: '/personal/favorites',
+            icon: faBookmark,
+            isLogin: true
+        },
+        {
+            title: 'Historys',
+            path: '/personal/historys',
+            icon: faClockRotateLeft,
+            isLogin: true
+        }
+    ],
+    general: [
+        {
+            title: 'Profile',
+            path: '/profile',
+            icon: faUser,
+            isLogin: true
+        },
+        {
+            title: 'Sign in',
+            path: '/login',
+            icon: faArrowRightToBracket,
+            isLogin: false
+        },
+        {
+            title: 'Sign up',
+            path: '/register',
+            icon: faUserPlus,
+            isLogin: false
+        },
+        {
+            title: 'Sign out',
+            path: '/login',
+            icon: faRightFromBracket,
+            isLogin: true
+        }
+    ]
+}
 
 
 export default function HeaderNav() {
@@ -45,7 +87,6 @@ export default function HeaderNav() {
     const name = useSelector((state) => state.auth.currentUser.displayName)
     const isToken = useSelector((state) => state.auth.currentUser.accessToken)
     const avatar = useSelector((state) => state.auth.currentUser.photoURL)
-    const active = headerNav.findIndex(el => el.path === pathName.pathname)
 
     useEffect(() => {
         const handleClickOutside = (e) => {
@@ -85,7 +126,7 @@ export default function HeaderNav() {
             <Search></Search>
             <div className={cx('title-nav')}>
                 {
-                    headerNav.map((e, i) => (
+                    headerNav.menu.map((e, i) => (
                         <Tippy
                             key={i}
                             content={
@@ -104,7 +145,7 @@ export default function HeaderNav() {
 
                             interactive="true"
                         >
-                            <Link to={e.path} className={cx('title', i == active ? 'active' : '')}>{e.title}</Link>
+                            <Link to={e.path} className={cx('title', e.path == pathName.pathname ? 'active' : '')}>{e.title}</Link>
                         </Tippy>
                     ))
                 }
@@ -157,10 +198,9 @@ export default function HeaderNav() {
                         <div className={cx('menu-title')}>
                             <h2>MENU</h2>
                         </div>
-
                         {
-                            headerNav.map((el, i) => (
-                                <div key={i} className={cx('menu-item', i == active ? 'item-active' : '')}>
+                            headerNav.menu.map((el, i) => (
+                                <div key={i} className={cx('menu-item', el.path == pathName.pathname ? 'item-active' : '')}>
                                     <FontAwesomeIcon className={cx('icon')} icon={el.icon} />
                                     <Link to={el.path} >{el.title}</Link>
                                 </div>
@@ -169,37 +209,34 @@ export default function HeaderNav() {
                     </div>
                     <div className={cx('menu-group')}>
                         <div className={cx('menu-title')}>
-                            <h2>GENERAL</h2>
+                            <h2>PERSONAL</h2>
                         </div>
-                        <div className={cx('menu-item')}>
-                            <FontAwesomeIcon className={cx('icon')} icon={faBookmark} />
-                            <Link to='./personal/favorites'>Favorite</Link>
-                        </div>
-                        <div className={cx('menu-item')}>
-                            <FontAwesomeIcon className={cx('icon')} icon={faClockRotateLeft} />
-                            <Link to='./personal/historys'>History</Link>
-                        </div>
+                        {
+                            headerNav.personal.map((element, i) => {
+                                if (!!isToken == element.isLogin) {
+                                    return (<div key={i} className={cx('menu-item', element.path == pathName.pathname ? 'item-active' : '')}>
+                                        <FontAwesomeIcon className={cx('icon')} icon={element.icon} />
+                                        <Link to={element.path} >{element.title}</Link>
+                                    </div>)
+                                }
+                                return;
+                            })
+                        }
                     </div>
                     <div className={cx('menu-group')}>
                         <div className={cx('menu-title')}>
                             <h2>ACCOUNT</h2>
                         </div>
                         {
-                            isToken ? <>
-                                <div className={cx('menu-item')}>
-                                    <FontAwesomeIcon className={cx('icon')} icon={faUser} />
-                                    <Link to='profile'>Profile</Link>
-                                </div>
-                                <div className={cx('menu-item')}>
-                                    <FontAwesomeIcon className={cx('icon')} icon={faRightFromBracket} />
-                                    <Link to='./login' onClick={handleSignOut}>Sign out</Link>
-                                </div>
-
-                            </>
-                                : <div className={cx('menu-item')}>
-                                    <FontAwesomeIcon className={cx('icon')} icon={faArrowRightToBracket} />
-                                    <Link to='./login'>Sign in</Link>
-                                </div>
+                            headerNav.general.map((element, i) => {
+                                if (!!isToken == element.isLogin) {
+                                    return (<div key={i} className={cx('menu-item', element.path == pathName.pathname ? 'item-active' : '')}>
+                                        <FontAwesomeIcon className={cx('icon')} icon={element.icon} />
+                                        <Link to={element.path} onClick={element.title == 'Sign out' && handleSignOut}>{element.title}</Link>
+                                    </div>)
+                                }
+                                return;
+                            })
                         }
                     </div>
                     <div className={cx('menu-group')}>

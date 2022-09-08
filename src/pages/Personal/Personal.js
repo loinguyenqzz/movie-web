@@ -115,26 +115,32 @@ export default () => {
                     <li className={cx('title', activeTab == 'tv' ? 'active' : "")} onClick={handleTvTab}>Tv Series</li>
                 </ul>
 
-                {
-                    edit ? <div className={cx('edit-wrap')}>
-                        <div className={cx('edit-option')} onClick={handleSelectedAll}>
-                            <FontAwesomeIcon icon={faCheckDouble}></FontAwesomeIcon>
-                            <h3>&nbsp;Select all</h3>
-                        </div>
-                        <div className={cx('edit-option')} onClick={handleDelete}>
-                            <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
-                            <h3>&nbsp;Delete</h3>
-                        </div>
-                        <div className={cx('edit-option')} onClick={handleEdit}>
-                            <FontAwesomeIcon icon={faCircleXmark}></FontAwesomeIcon>
-                            <h3>&nbsp;Cancel</h3>
-                        </div>
 
-                    </div> : <div className={cx('btn-edit')}>
-                            <FontAwesomeIcon icon={faPenToSquare}></FontAwesomeIcon>
-                            <h3 onClick={handleEdit}>&nbsp;Edit</h3>
-                        </div>
-                }
+                <div className={cx('edit-wrap')}>
+                    {
+                        edit ?
+                            <>
+                                <div className={cx('edit-option')} onClick={handleSelectedAll}>
+                                    <FontAwesomeIcon icon={faCheckDouble}></FontAwesomeIcon>
+                                    <h3>&nbsp;Select all</h3>
+                                </div>
+
+                                <div className={cx('edit-option')} onClick={handleDelete}>
+                                    <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
+                                    <h3>&nbsp;Delete</h3>
+                                </div>
+
+                                <div className={cx('edit-option')} onClick={handleEdit}>
+                                    <FontAwesomeIcon icon={faCircleXmark}></FontAwesomeIcon>
+                                    <h3>&nbsp;Cancel</h3>
+                                </div>
+                            </> : <div className={cx('edit-option')}>
+                                <FontAwesomeIcon icon={faPenToSquare}></FontAwesomeIcon>
+                                <h3 onClick={handleEdit}>&nbsp;Edit</h3>
+                            </div>
+                    }
+                </div>
+
             </div>
             <MovieGrid>
                 {

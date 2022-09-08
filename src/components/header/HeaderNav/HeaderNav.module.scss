@@ -100,7 +100,7 @@
 
   .navigation {
     padding-left: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     display: none;
     @include mobile {
       display: block;
@@ -162,10 +162,13 @@
           padding: 0.5rem 1rem;
 
           & > img {
+            flex-shrink: 0;
             width: 2.5rem;
+            height: 2.5rem;
             border-radius: 9999px;
             border: 3px solid $ultimate-gray;
             background-color: white;
+            object-fit: cover;
           }
 
           .user-name {

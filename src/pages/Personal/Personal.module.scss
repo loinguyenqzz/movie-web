@@ -35,31 +35,22 @@
           width: 100%;
           justify-content: flex-end;
         }
+
         .edit-option {
           padding: 1rem 2rem;
           cursor: pointer;
           @include flex(center);
-          
-          @include mobile {
-            padding: 1rem;
-            font-size: .8rem;
-            @include flex(center, flex-end);
-          }
-  
+
           &:hover {
             color: $light-blue;
           }
-        }
-      }
-      .btn-edit {
-        width: 100%;
-        padding: 1rem 2rem;
-        cursor: pointer;
-        @include flex(center, flex-end);
-        
-        @include mobile {
-          padding: 1rem;
-          font-size: 0.8rem;
+          
+          @include mobile {
+            color: white;
+            padding: 1rem;
+            font-size: 0.9rem;
+            @include flex(center, flex-end);
+          }
         }
       }
     }
