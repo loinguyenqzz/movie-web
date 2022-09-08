@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { FacebookAuthProvider, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
+import { FacebookAuthProvider, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup,signInWithRedirect, onAuthStateChanged } from "firebase/auth";
 import { loginSuccess, loginStart, loginFailed } from '../../app/slice/authSlice';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,9 +13,6 @@ import styles from './Login.module.scss'
 import avatar from '../../assets/kindpng_4212275.png'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-const FbProvider = new FacebookAuthProvider();
-const GgProvider = new GoogleAuthProvider();
 
 const cx = className.bind(styles)
 
@@ -36,10 +33,11 @@ export default () => {
         progress: undefined,
     }
 
-    const handleLoginFB = async () => {
+    const handleLoginWithProvider = (Provider) => async () => {
         dispatch(loginStart())
         try {
-            await signInWithPopup(auth, FbProvider)
+            if(window.innerWidth < 1024) await signInWithRedirect(auth, Provider)
+            else await signInWithPopup(auth, Provider)
             dispatch(loginSuccess({
                 uid: auth.currentUser.uid,
                 accessToken: auth.currentUser.accessToken,
@@ -50,24 +48,7 @@ export default () => {
             }))
             navigate('/')
         } catch (error) {
-            dispatch(loginFailed())
-        }
-    }
-
-    const handleLoginGG = async () => {
-        dispatch(loginStart())
-        try {
-            await signInWithPopup(auth, GgProvider)
-            dispatch(loginSuccess({
-                uid: auth.currentUser.uid,
-                accessToken: auth.currentUser.accessToken,
-                email: auth.currentUser.email,
-                emailVerified: auth.currentUser.emailVerified,
-                displayName: auth.currentUser.displayName,
-                photoURL: auth.currentUser.photoURL ? auth.currentUser.photoURL : avatar
-            }))
-            navigate('/')
-        } catch (error) {
+            console.log(error);
             dispatch(loginFailed())
         }
     }
@@ -120,8 +101,12 @@ export default () => {
             <div className={cx('login-with-provider')}>
                 <p>Or sign in with:</p>
                 <div className={cx('btn')}>
-                    <button className={cx('fb')} onClick={handleLoginFB}></button>
-                    <button className={cx('gg')} onClick={handleLoginGG}></button>
+                    <button
+                        className={cx('fb')}
+                        onClick={handleLoginWithProvider(new FacebookAuthProvider)}></button>
+                    <button
+                        className={cx('gg')}
+                        onClick={handleLoginWithProvider(new GoogleAuthProvider)}></button>
                 </div>
             </div>
 
