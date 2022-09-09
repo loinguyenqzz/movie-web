@@ -1,7 +1,7 @@
 @use '../../styles/' as *;
 
 .personal {
-  padding: $header-height 1rem 0 2rem;
+  padding: $header-height 1rem 2rem 1rem;
   min-height: 100vh;
 
   .content {
@@ -56,6 +56,7 @@
     }
 
     .movie-item {
+      padding-top: 1rem;
       @include flex(center, unset, column);
       .wrapper {
         width: 100%;

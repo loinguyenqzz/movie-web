@@ -1,5 +1,6 @@
 @use "../../styles/" as *;
 
 .catalog {
+    min-height: 100vh;
     padding: $header-height 0 0 1.5rem;
 }

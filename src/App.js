@@ -18,13 +18,15 @@ function App() {
   })
 
   useEffect(() => {
-    window.scrollTo(0,0)
-  },[location.pathname])
-  
+    window.scrollTo(0, 0)
+  }, [location.pathname])
+
   return (
     <>
       <Header />
-      <RoutesConfig />
+      <div style={{ minHeight: '90vh' }}>
+        <RoutesConfig />
+      </div>
       <Footer />
     </>
   );

@@ -1,3 +1,5 @@
+@use '../../styles/' as *;
+
 .footer {
     background-image: url('../../assets/footer-bg.jpg');
     background-position: top;
@@ -7,4 +9,8 @@
     width: 100%;
     height: 300px;
     position: relative;
+
+    @include mobile {
+        height: 150px;
+    }
 }
