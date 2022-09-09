@@ -9,6 +9,7 @@ import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 
 function App() {
+
   const location = useLocation()
   useEffect(() => {
     window.onbeforeunload = function () {

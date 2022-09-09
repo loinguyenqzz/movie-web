@@ -34,8 +34,11 @@ export default () => {
             try {
                 setLoading(true)
                 const docSnap = await getDoc(collectionRef)
-                if (docSnap.data()) {
+                console.log(docSnap.data());
+                if (docSnap.data() && Object.hasOwn(docSnap.data(), 'lists')) {
                     setItems(docSnap.data().lists)
+                } else {
+                    setItems([])
                 }
             } catch (error) {
                 console.log(error);
@@ -48,6 +51,8 @@ export default () => {
 
     useEffect(() => {
         setActiveTab('all')
+        setEdit(false)
+        setSelected([])
     }, [feature])
 
     useEffect(() => {
