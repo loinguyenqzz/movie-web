@@ -46,9 +46,9 @@
           }
           
           @include mobile {
-            color: white;
+            transition: color 100s ease;
             padding: 1rem;
-            font-size: 0.9rem;
+            font-size: .9rem;
             @include flex(center, flex-end);
           }
         }

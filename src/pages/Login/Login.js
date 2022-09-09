@@ -8,7 +8,7 @@ import { loginSuccess, loginStart, loginFailed } from '../../app/slice/authSlice
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import className from 'classnames/bind'
-import { OutlineButton } from '../../components/Button'
+import Button from '../../components/Button'
 import styles from './Login.module.scss'
 import Loading from '../../components/Loading'
 import avatar from '../../assets/kindpng_4212275.png'
@@ -137,7 +137,7 @@ export default () => {
                         <FontAwesomeIcon className={cx('icon')} icon={faLock}></FontAwesomeIcon>
                     </div>
 
-                    <OutlineButton className={cx('btn-login')} type="submit" onClick={handleSubmit}>Sign in</OutlineButton>
+                    <Button className={cx('btn-login')} type="submit" onClick={handleSubmit}>Sign in</Button>
                 </form>
 
                 <div className={cx('navigate')}>

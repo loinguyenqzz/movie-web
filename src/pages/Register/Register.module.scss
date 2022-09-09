@@ -3,7 +3,8 @@
   height: 100vh;
   width: 100%;
   position: relative;
-  @include flex(center, center, column);
+  padding-top: $header-height;
+  @include flex(center, unset, column);
 
   .tittle {
     color: $red3;
@@ -11,7 +12,7 @@
     font-weight: 700;
 
     @include mobile {
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
   }
 
@@ -27,13 +28,13 @@
         .label {
           opacity: 0.6;
           position: absolute;
-          transform: translate(1.25rem, 60%);
+          transform: translate(1.25rem, calc(100% - 0.5rem));
           font-size: 1rem;
           pointer-events: none;
 
           @include mobile {
-            font-size: .7rem;
-            transform: translate(1.25rem, 80%);
+            font-size: .8rem;
+            transform: translate(1.25rem, calc(100% - 0.4rem));
           }
         }
 

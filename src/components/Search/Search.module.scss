@@ -44,7 +44,7 @@
 
     @include mobile {
       font-size: 14px;
-      line-height: 25px;
+      line-height: 27px;
     }
   }
 
@@ -70,8 +70,8 @@
     }
 
     @include mobile {
-      width: 25px;
-      height: 25px;
+      width: 27px;
+      height: 27px;
       border: 1px solid $gray;
       font-size: 0.9rem;
     }

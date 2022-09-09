@@ -179,18 +179,6 @@ export default () => {
                 Already a member?
                 <Link to="/login" className={cx('link')}> Sign in</Link>
             </div>
-            <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
-            {/* Same as */}
             <ToastContainer />
         </div>
     )

@@ -24,7 +24,7 @@ function App() {
   return (
     <>
       <Header />
-      <div style={{ minHeight: '90vh' }}>
+      <div style={{ minHeight: '100vh' }}>
         <RoutesConfig />
       </div>
       <Footer />

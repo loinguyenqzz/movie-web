@@ -139,9 +139,9 @@ export default () => {
                                     <FontAwesomeIcon icon={faCircleXmark}></FontAwesomeIcon>
                                     <h3>&nbsp;Cancel</h3>
                                 </div>
-                            </> : <div className={cx('edit-option')}>
+                            </> : <div className={cx('edit-option')} onClick={handleEdit}>
                                 <FontAwesomeIcon icon={faPenToSquare}></FontAwesomeIcon>
-                                <h3 onClick={handleEdit}>&nbsp;Edit</h3>
+                                <h3 >&nbsp;Edit</h3>
                             </div>
                     }
                 </div>

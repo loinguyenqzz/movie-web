@@ -59,6 +59,7 @@ export default function MovieList(props) {
             slidesPerView={'auto'}
             slidesPerGroupAuto
             navigation
+            className={cx('swiper')}
         >
             {
                 items?.map((item, i) => (
