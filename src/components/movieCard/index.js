@@ -35,7 +35,7 @@ export default function MovieCard(props) {
                     <span className={cx('realease-date')}>{item.release_date || item.first_air_date}</span>
                     <div className={cx('rating')}>
                         <FontAwesomeIcon icon={faStar} className={cx('icon')} />
-                        <span className={cx('rate-count')}>{item.vote_average / 2}</span>
+                        <span className={cx('rate-count')}>{(item.vote_average / 2).toFixed(1)}</span>
                     </div>
                 </div>
             </div>
