@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Dayly Movie
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Movie / Tv show Watching Website
 
-## Available Scripts
+## Link demo
 
-In the project directory, you can run:
+Website: https://movie-web-tau.vercel.app/
 
-### `npm start`
+## API: 
+https://www.themoviedb.org/
+https://www.2embed.org/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Công nghệ sử dụng chính: 
+- Reactjs , Scss
+- Redux toolkit, Axios, React-Router-Dom
+- Firebase
+- Formik, Yup, Tippy, swiper
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tính năng 
+- Xem trailer, phim lẻ, phim truyền hình trực tuyến.
+- Tìm kiếm phim theo keyword phân chia theo movie và tv series
+- Phân chia phim và tv theo từng thể loại
+- Đăng ký, đăng nhập bằng email, google và facebook
+- Thêm mới và xóa danh sách yêu thích, danh sách đã xem gần đây
+- Tài khoản: Có thể thay đổi avatar, email, tên hiển thị, mật khẩu, xóa tài khoản sau khi xác thực lại mật khẩu. 
+- Skeleton loading, lazy load image, pagination 
 
-### `npm test`
+## Preview
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![preview](https://firebasestorage.googleapis.com/v0/b/movie-a9911.appspot.com/o/preview%2FScreenshot%202022-09-11%20184626.jpg?alt=media&token=f96faa03-f687-4036-bfc8-e4d1cd11b34c)
 
-### `npm run build`
+![preview](https://firebasestorage.googleapis.com/v0/b/movie-a9911.appspot.com/o/preview%2FScreenshot%202022-09-11%20184710.jpg?alt=media&token=95a053af-a6b1-4c97-b70c-a44fc6993c0d)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![preview](https://firebasestorage.googleapis.com/v0/b/movie-a9911.appspot.com/o/preview%2FScreenshot%202022-09-11%20184735.jpg?alt=media&token=888f9b9f-3148-4d2f-8276-f3505cf82900)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![preview](https://firebasestorage.googleapis.com/v0/b/movie-a9911.appspot.com/o/preview%2FScreenshot%202022-09-11%20184750.jpg?alt=media&token=869eacae-2935-44b8-9133-c040116053d2)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![preview](https://firebasestorage.googleapis.com/v0/b/movie-a9911.appspot.com/o/preview%2FUntitled.jpg?alt=media&token=63a71587-f721-427b-8fd8-9347c5cfbb07)
 
-### `npm run eject`
+![preview](https://firebasestorage.googleapis.com/v0/b/movie-a9911.appspot.com/o/preview%2Fpreview2.jpg?alt=media&token=6d2f0c2a-2d76-404e-8d59-0207057eb537)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![preview](https://firebasestorage.googleapis.com/v0/b/movie-a9911.appspot.com/o/preview%2Fpreview3.jpg?alt=media&token=91e77d99-3880-4f2b-a459-0ebbaf7d4ea5)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![preview](https://firebasestorage.googleapis.com/v0/b/movie-a9911.appspot.com/o/preview%2FScreenshot%202022-09-11%20184827.jpg?alt=media&token=ebe43ab1-4366-4d8a-8a96-8c833ad67e84)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![preview](https://firebasestorage.googleapis.com/v0/b/movie-a9911.appspot.com/o/preview%2FScreenshot%202022-09-11%20184925.jpg?alt=media&token=0f895081-162d-4f22-8e2f-cebca9f64505)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![preview](https://firebasestorage.googleapis.com/v0/b/movie-a9911.appspot.com/o/preview%2FScreenshot%202022-09-11%20184949.jpg?alt=media&token=a6fae222-b3f4-4c8a-8086-bec11345c7ea)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![preview](https://firebasestorage.googleapis.com/v0/b/movie-a9911.appspot.com/o/preview%2FScreenshot%202022-09-11%20185014.jpg?alt=media&token=c6ab6337-f17d-4897-af37-4e64746d1dad)
