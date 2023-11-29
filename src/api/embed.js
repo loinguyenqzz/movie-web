@@ -1,7 +1,9 @@
-const baseUrl = "https://2embed.org/embed/" 
+const baseUrl = "https://2embed.org/";
 
 export default {
-    getVideo : (id, season = null, episode = null) => {
-        return season ? baseUrl + id + "/" +  season + "/" +  episode : baseUrl + id
-    }
-}
+  getVideo: (id, season = null, episode = null) => {
+    return season
+      ? baseUrl + "series.php?id=" + id + "/" + season + "/" + episode
+      : baseUrl + "e.php?id=" + id;
+  },
+};
