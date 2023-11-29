@@ -72,6 +72,10 @@ iframe {
   margin-bottom: 3rem;
 }
 
+.flex {
+  display: flex;
+}
+
 .mb-2 {
   margin-bottom: 2rem;
 }
@@ -96,12 +100,13 @@ iframe {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: $gray;
+  background: $ultimate-gray;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #fff;
 }
+
 ::-webkit-scrollbar-thumb:active {
   background: linear-gradient(to left, #22add4, #1e98ba);
 }

@@ -1,0 +1,116 @@
+@use '../../styles/' as *;
+
+.filter-bar {
+    height: 100%;
+    width: 300px;
+    background-color: $gray;
+    border-radius: 6px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+    &>*~* {
+        margin-top: 16px;
+    }
+
+    .filter-item {
+        .filter-title {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+    }
+
+    .range {
+        .range-text {
+            @include flex(center, space-between)
+        }
+
+        .render-track {
+            height: 6px;
+            width: 100%;
+            background-color: $white-smoke;
+            margin-bottom: 12px;
+        }
+
+        .render-thumb {
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background-color: #fff;
+            box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+
+            &:active,
+            &:focus {
+                outline: none;
+                background-color: $ultimate-gray;
+            }
+        }
+    }
+
+    .date {
+        .date-item {
+            @include flex(center, space-between);
+            position: relative;
+            margin-bottom: 12px;
+
+            .date-item__title {
+                width: 100px;
+            }
+
+            .icon-date {
+                position: absolute;
+                top: 6px;
+                right: 12px;
+                color: $ultimate-gray;
+            }
+
+            .datepicker {
+                color: $ultimate-gray;
+                width: 100%;
+                height: 32px;
+                padding: 6px;
+                border-radius: 6px;
+                background-color: $gray;
+                outline: 0;
+                border: 2px solid $ultimate-gray;
+            }
+        }
+    }
+
+    .genres {
+        height: 100%;
+        flex-grow: 1;
+
+        .genres-wrap {
+            height: 360px;
+            display: flex;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            overflow-y: auto;
+            justify-content: space-between;
+
+            .genres-item {
+                border: 1px solid $ultimate-gray;
+                padding: 4px 16px;
+                border-radius: 30px;
+                margin-bottom: 6px;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: $light-gray;
+                    transition: all 0.3s ease-in-out;
+                    color: $titanium-gray;
+                }
+
+
+            }
+
+            .genres-active {
+                background-color: $light-gray;
+                color: $titanium-gray;
+            }
+        }
+    }
+}

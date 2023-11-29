@@ -1,8 +1,8 @@
 @use '../../styles/' as *;
 
 .search {
-    margin-top: $header-height;
-    padding: 0 2rem;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../assets/photo-1458053688450-eef5d21d43b3.webp);
 
     .tab {
         @include flex(center);
@@ -16,4 +16,81 @@
             border-bottom: 3px solid $main-color;
         }
     }
+
+    .about-us {
+        padding: $header-height 2rem;
+    }
+
+    h1 {
+        margin-top: 0;
+    }
+
+    .section {
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        margin: 0 0 10px 0;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        margin-bottom: 5px;
+    }
+
+    .section {
+        opacity: 0;
+        /* Ẩn section ban đầu */
+        transform: translateY(50px);
+        /* Di chuyển section xuống phía dưới 50px */
+        animation-name: slideInUp;
+        /* Sử dụng animation slideInUp */
+        animation-duration: 1s;
+        /* Thời gian chạy animation là 1 giây */
+        animation-fill-mode: forwards;
+        /* Dừng section ở trạng thái cuối cùng của animation */
+    }
+
+    @keyframes slideInUp {
+        from {
+            opacity: 0;
+            /* Bắt đầu với opacity là 0 */
+            transform: translateY(50px);
+            /* Bắt đầu di chuyển section xuống phía dưới 50px */
+        }
+
+        to {
+            opacity: 1;
+            /* Kết thúc với opacity là 1 */
+            transform: translateY(0);
+            /* Kết thúc di chuyển section lên đến vị trí ban đầu */
+        }
+    }
+
+    .section:nth-of-type(1) {
+        animation-delay: 0.2s;
+        /* Bắt đầu animation sau 0.2 giây */
+    }
+
+    .section:nth-of-type(2) {
+        animation-delay: 0.4s;
+        /* Bắt đầu animation sau 0.4 giây */
+    }
+
+    .section:nth-of-type(3) {
+        animation-delay: 0.6s;
+        /* Bắt đầu animation sau 0.6 giây */
+    }
+
+
 }

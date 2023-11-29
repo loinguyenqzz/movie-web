@@ -8,10 +8,14 @@
     }
 
     @include mobile {
-       width: 130px;
+        width: 130px;
     }
 }
 
 .swiper {
     z-index: 0;
+}
+
+.skeleton-release-year {
+    @include flex(unset, space-between)
 }

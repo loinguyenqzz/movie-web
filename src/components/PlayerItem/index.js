@@ -1,61 +1,69 @@
-import styles from './PlayerItem.module.scss'
-import className from 'classnames/bind'
-import apiConfig from '../../api/apiConfig'
-import embed from '../../api/embed'
-import { useState } from 'react'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
-import 'react-lazy-load-image-component/src/effects/blur.css';
-const cx = className.bind(styles)
+import styles from "./PlayerItem.module.scss";
+import className from "classnames/bind";
+import embed from "../../api/embed";
+import { useEffect, useState } from "react";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useSelector } from "react-redux";
+import { getRating, updateRating } from "../../api/movieService";
 
-export default ({ seasons, id, catagory, movie }) => {
-    const [season, setSeason] = useState(1);
-    const [episode, setEpisode] = useState(1);
-    const handleOnclick = (season, episode) => () => {
-        setSeason(season)
-        setEpisode(episode)
+const cx = className.bind(styles);
+export default ({ id }) => {
+  const [rating, setRating] = useState(0);
+  const uid = useSelector((state) => state.auth.currentUser.uid);
+
+  useEffect(() => {
+    if (uid) {
+      getRatingData();
     }
+  }, [id, uid]);
 
-    const handleSelectSeason = (season) => () => {
-        setSeason(season)
+  const getRatingData = async () => {
+    const res = await getRating(id, uid);
+    if (res) {
+      setRating(res.rating);
+    } else {
+      setRating(0);
     }
+  };
 
-    return <div className={cx('player')}>
-        {
-            catagory == 'movie' ? <iframe src={embed.getVideo(id)} />
-                : <iframe src={embed.getVideo(id, season, episode)} />
-        }
-        <div className={cx('player-item')} >
-            {
-                seasons?.map((e, i) => {
-                    const img = apiConfig.originalImage(e.poster_path)
-                    if (e.season_number != 0) {
-                        return <div key={i} className={cx('season')} onClick={handleSelectSeason(e.season_number)}>
-                            <div className={cx('season-header')}>
-                                <LazyLoadImage src={img} alt="" />
-                                <div className={cx('infor-season')}>
-                                    <h2 className={cx('season-name')}>{e.name}</h2>
-                                    <h3>Episode number : {e.episode_count}</h3>
-                                </div>
-                            </div>
-                            <div className={cx('episode', season == e.season_number ? 'active' : '')}>
-                                {
-                                    new Array(e.episode_count)
-                                        .fill('')
-                                        .map((_, i) => <button key={i} className={cx('episode-number', i + 1 == episode ? 'active-btn' : '')} onClick={handleOnclick(e.season_number, i + 1)}>{i + 1}</button>)
-                                }
-                            </div>
-                        </div>
-                    }
-                }) || <div className={cx('type-movie')}>
-                    <div className={cx('poster')}>
-                        <LazyLoadImage src={movie.poster} className={cx('img')} />
-                    </div>
-                    <div className={cx('infor')}>
-                        <h3>{movie.name}</h3>
-                    </div>
-                </div>
-            }
+  async function handleClick(ratingNumber) {
+    if (uid) {
+      if (ratingNumber != rating) {
+        setRating(ratingNumber);
+        toast.info("Your request is being processed");
+        await updateRating(uid, id, ratingNumber);
+        toast.success("Movie rating successful!");
+      } else {
+        setRating(0);
+        toast.info("Your request is being processed");
+        await updateRating(uid, id, 0);
+        toast.success('Cancelled rating successfully!"');
+      }
+    } else {
+      toast.warning("You must be logged in to use this feature!");
+    }
+  }
+
+  return (
+    <div className={cx("player")}>
+      <iframe src={embed.getVideo(id)} />
+      <div className={cx("rating")}>
+        <div className={cx("rating-title")}>Rating for this movie:</div>
+        <div className={cx("icon-star-wraper")}>
+          {Array.from({ length: 5 }, (v, i) => (
+            <FontAwesomeIcon
+              className={cx(["star-icon", i <= rating - 1 ? "active" : ""])}
+              icon={faStar}
+              key={i}
+              onClick={() => handleClick(i + 1)}
+            />
+          ))}
         </div>
+      </div>
     </div>
-}
-
+  );
+};

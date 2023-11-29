@@ -2,6 +2,7 @@
 
 .wrapper {
   min-height: 100vh;
+
   .detail {
     background-position: center;
     background-repeat: no-repeat;
@@ -56,6 +57,7 @@
 
       .title {
         display: none;
+
         @include mobile {
           display: block;
           grid-area: 1 / 2 / 2 / 3;
@@ -70,6 +72,7 @@
 
       .poster-img {
         border-radius: 10px;
+
         @include mobile {
           height: 150px;
         }
@@ -83,7 +86,8 @@
           grid-area: 2 / 2 / 3 / 3;
           @include flex(center, flex-end, row-reverse);
           flex-wrap: wrap;
-          & > * ~ * {
+
+          &>*~* {
             margin-right: 0.7rem;
           }
         }
@@ -113,6 +117,7 @@
           &:hover {
             color: $main-color;
             border: 3px solid $main-color;
+
             @include mobile {
               border: 2px solid $main-color;
             }
@@ -132,6 +137,11 @@
               font-size: 1.1rem;
             }
           }
+        }
+
+        .favorite-active {
+          color: $main-color !important;
+          border: 3px solid $main-color !important;
         }
       }
     }
@@ -195,7 +205,7 @@
       padding: 0;
     }
 
-    & > iframe {
+    &>iframe {
       box-shadow: $box-shadow;
       width: 70vw;
       height: 80vh;

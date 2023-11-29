@@ -5,7 +5,7 @@
   width: calc(100vw - 7px);
   z-index: 9999;
   @include overlay;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 }
@@ -53,6 +53,7 @@
   0% {
     transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
   }
+
   100% {
     transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
   }
@@ -62,6 +63,7 @@
   0% {
     transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
   }
+
   100% {
     transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
   }
@@ -71,6 +73,7 @@
   0% {
     transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
   }
+
   100% {
     transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
   }

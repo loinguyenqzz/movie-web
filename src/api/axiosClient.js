@@ -1,24 +1,32 @@
-import axios from 'axios';
-import queryString from 'query-string'
-import apiConfig, {api2Embed} from './apiConfig'
+import axios from "axios";
+import queryString from "query-string";
+import apiConfig from "./apiConfig";
 
 const axiosClient = axios.create({
-    baseURL: apiConfig.baseUrl,
-    headers: {
-        'Content-type' : 'application/json'
-    },
-    paramsSerializer: params => queryString.stringify({...params,api_key:apiConfig.apiKey})
-})
+  baseURL: apiConfig.baseUrl,
+  headers: {
+    "Content-type": "application/json",
+  },
+  paramsSerializer: (params) =>
+    queryString.stringify({ ...params, api_key: apiConfig.apiKey }),
+});
 
-axiosClient.interceptors.request.use(async (config) => config)
+export const axiosLocal = axios.create({
+  baseURL: apiConfig.baseUrlLocal,
+});
 
-axiosClient.interceptors.response.use(async (response) => {
+axiosClient.interceptors.request.use(async (config) => config);
+
+axiosClient.interceptors.response.use(
+  async (response) => {
     if (response && response.data) {
-        return response.data
+      return response.data;
     }
-    return response
-}, (error) => {
-    throw error
-})
+    return response;
+  },
+  (error) => {
+    throw error;
+  }
+);
 
-export default axiosClient
+export default axiosClient;

@@ -7,8 +7,8 @@ Movie / Tv show Watching Website
 Website: https://movie-web-tau.vercel.app/
 
 ## API: 
-https://www.themoviedb.org/
-https://www.2embed.org/
+- https://www.themoviedb.org/
+- https://www.2embed.org/
 
 ## Công nghệ sử dụng chính: 
 - Reactjs , Scss
